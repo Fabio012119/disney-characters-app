@@ -6,7 +6,7 @@ const DashboardHeader = () => {
   const username = useAppSelector((s) => s.auth.username);
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between p-3">
       <h1 className="text-2xl text-black font-bold">Disney Dashboard</h1>
       <div className="flex items-center gap-3">
         <span className="text-sm text-slate-600">Hello, {username}</span>

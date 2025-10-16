@@ -1,10 +1,42 @@
 import Form from "../components/Form";
+import disneyImage from "../assets/disney-plus-logo.webp";
 
 const Login = () => {
   return (
-    <div className="min-h-screen w-1/2 flex items-center justify-center bg-slate-50">
-      <Form />
-    </div>
+    <main className="flex max-xl:flex-col xl:flex-row min-h-[100svh]">
+      <div
+        className="flex items-center justify-center bg-slate-50
+                      w-full xl:w-1/2
+                      min-h-[100svh] xl:min-h-[100svh] 
+                      p-6 sm:p-8 lg:p-10"
+      >
+        <div className="w-full max-w-md flex flex-col items-center">
+          <img
+            src={disneyImage}
+            alt="Disney+"
+            className="block xl:hidden w-40 sm:w-48 md:w-56 h-auto object-contain mb-6"
+            loading="eager"
+            decoding="async"
+          />
+          <Form />
+        </div>
+      </div>
+
+      <div
+        className="hidden xl:flex items-center justify-center
+                      w-1/2 min-h-[100svh]
+                      bg-gradient-to-r from-[#0A2A6C] via-[#0F3EBD] to-[#1A73FF]
+                      p-6 lg:p-10"
+      >
+        <img
+          src={disneyImage}
+          alt="Disney+"
+          className="invert w-full max-w-md h-auto object-contain"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </main>
   );
 };
 

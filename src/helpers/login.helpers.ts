@@ -4,7 +4,7 @@ import type { AppDispatch } from "../redux/store";
 import { loginSuccess } from "../redux/reducers/authSlice";
 
 const USER = "disney";
-const PASS = "characters123!";
+const PASS = "disney123";
 
 export function onSubmit(
   e: React.FormEvent<HTMLFormElement>,

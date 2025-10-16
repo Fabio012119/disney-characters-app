@@ -1,0 +1,24 @@
+import { API_PAGE_SIZE } from "../constants";
+import type { ApiResponse } from "../types/api";
+
+export function createApiFetcher(nameQ: string) {
+  return async function fetchApiPage(
+    apiPage: number,
+    signal: AbortSignal
+  ): Promise<ApiResponse> {
+    const p = new URLSearchParams({
+      page: String(apiPage),
+      pageSize: String(API_PAGE_SIZE),
+    });
+    const nameClean = nameQ.trim();
+    if (nameClean) p.set("name", nameClean);
+
+    const res = await fetch(
+      `https://api.disneyapi.dev/character?${p.toString()}`,
+      { signal }
+    );
+    //console.log(await res.json())
+    if (!res.ok) throw new Error(String(res.status));
+    return (await res.json()) as ApiResponse;
+  };
+}

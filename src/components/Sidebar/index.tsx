@@ -26,7 +26,6 @@ const Sidebar = ({ open, onClose }: Props) => {
       >
         <div className="mb-6">
           <div className="text-lg font-bold">Disney Admin</div>
-          <p className="text-xs text-slate-500">v1.0</p>
         </div>
 
         <nav className="space-y-1">
@@ -47,6 +46,6 @@ const Sidebar = ({ open, onClose }: Props) => {
       </aside>
     </>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;
