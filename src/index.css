@@ -14,4 +14,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 767px) {
 
+  .ag-paging-row-summary-panel,
+  .ag-paging-description {
+    font-size: 0.6rem;
+    white-space: pre;
+  }
+}
