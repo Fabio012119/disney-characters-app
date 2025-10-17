@@ -10,12 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.4",
-    "@mui/material": "^7.3.4",
-    "@mui/x-data-grid": "^8.14.1",
-    "@mui/x-data-grid-premium": "^8.14.1",
     "@reduxjs/toolkit": "^2.9.0",
     "ag-grid-community": "^34.2.0",
     "ag-grid-react": "^34.2.0",

@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 import DashboardHeader from "../components/Headers/DashboardHeader";
 import CharactersTable from "../components/Table";
 import Sidebar from "../components/Sidebar";
+import PieCharts from "../components/PieCharts";
 import { selectView } from "../redux/reducers/viewsSlice";
-
-const PieCharts = () => <div>Pie charts go here</div>;
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
