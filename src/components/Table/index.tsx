@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { PAGE_SIZES, API_PAGE_SIZE } from "../../constants";
 import {
@@ -14,28 +14,53 @@ import { useDebouncedQuery } from "../../hooks/useDebouncedQuerry";
 import { createApiFetcher } from "../../api/createApiFetcher";
 import { createDisneyDatasource } from "../../datasource/createDisneyDatasource";
 import { usePreserveTopRowOnPageSize } from "../../hooks/usePreserveTopRowOnPageSize";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectNameInput,
+  selectTvInput,
+  selectNameQ,
+  selectTvQ,
+  selectPageSize,
+  selectRowCount,
+  setNameInput,
+  setTvInput,
+  setNameQ,
+  setTvQ,
+  setPageSize,
+  setRowCount,
+  clearNameInput,
+  clearTvInput,
+} from "../../redux/reducers/charactersTableSlice";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const CharactersTable = () => {
+  const dispatch = useDispatch();
+  const pageSize = useSelector(selectPageSize);
+  const nameInput = useSelector(selectNameInput);
+  const tvInput = useSelector(selectTvInput);
+  const nameQ = useSelector(selectNameQ);
+  const tvQ = useSelector(selectTvQ);
+  const rowCount = useSelector(selectRowCount);
+
   const apiRef = useRef<GridApi | null>(null);
   const pageSizeRef = useRef<number>(50);
   const prevPageSizeRef = useRef<number>(50);
-  const [pageSize, setPageSize] = useState<number>(50);
-  const [nameInput, setNameInput] = useState<string>("");
-  const [tvInput, setTvInput] = useState<string>("");
-  const [nameQ, setNameQ] = useState<string>("");
-  const [tvQ, setTvQ] = useState<string>("");
-
-  const [rowCount, setRowCount] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     pageSizeRef.current = pageSize;
   }, [pageSize]);
 
-  useDebouncedQuery(nameInput, tvInput, setNameQ, setTvQ, apiRef, 300);
-
   usePreserveTopRowOnPageSize(apiRef, pageSize, prevPageSizeRef);
+
+  useDebouncedQuery(
+    nameInput,
+    tvInput,
+    (v) => dispatch(setNameQ(v)),
+    (v) => dispatch(setTvQ(v)),
+    apiRef,
+    300
+  );
 
   const fetchApiPage = useMemo(() => createApiFetcher(nameQ), [nameQ]);
 
@@ -45,9 +70,9 @@ const CharactersTable = () => {
         fetchApiPage,
         tvQ,
         pageSizeRef,
-        setRowCount,
+        setRowCount: (n) => dispatch(setRowCount(n)),
       }),
-    [fetchApiPage, tvQ]
+    [dispatch, fetchApiPage, tvQ]
   );
 
   return (
@@ -58,13 +83,13 @@ const CharactersTable = () => {
           <input
             className="rounded-md border px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring"
             value={nameInput}
-            onChange={(e) => setNameInput(e.target.value)}
+            onChange={(e) => dispatch(setNameInput(e.target.value))}
             placeholder="Minnie"
           />
           {nameInput && (
             <button
               className="rounded-md border px-2 py-1 text-sm shadow-sm hover:bg-gray-50"
-              onClick={() => setNameInput("")}
+              onClick={() => dispatch(clearNameInput())}
             >
               Clear
             </button>
@@ -76,13 +101,13 @@ const CharactersTable = () => {
           <input
             className="rounded-md border px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring"
             value={tvInput}
-            onChange={(e) => setTvInput(e.target.value)}
+            onChange={(e) => dispatch(setTvInput(e.target.value))}
             placeholder="DuckTales"
           />
           {tvInput && (
             <button
               className="rounded-md border px-2 py-1 text-sm shadow-sm hover:bg-gray-50"
-              onClick={() => setTvInput("")}
+              onClick={() => dispatch(clearTvInput())}
             >
               Clear
             </button>
@@ -94,7 +119,7 @@ const CharactersTable = () => {
           <select
             className="rounded-md border px-2 py-2 text-sm shadow-sm focus:outline-none focus:ring"
             value={pageSize}
-            onChange={(e) => setPageSize(Number(e.target.value))}
+            onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
           >
             {PAGE_SIZES.map((s) => (
               <option key={s} value={s}>
