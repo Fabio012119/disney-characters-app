@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   selectView,
   setView,
@@ -12,8 +12,8 @@ const MenuButton = ({
   onClose: () => void;
   n: { label: string; view: DashboardView };
 }) => {
-  const dispatch = useDispatch();
-  const current = useSelector(selectView);
+  const dispatch = useAppDispatch();
+  const current = useAppSelector(selectView);
   const isActive = (n: { view: DashboardView }) => {
     return n.view === current;
   };

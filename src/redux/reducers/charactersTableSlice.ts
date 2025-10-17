@@ -1,5 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { getOneCharacter } from "../../api/getOneCharacter";
 import type { RootState } from "../store";
+import type { Character } from "../../types/general";
 
 type State = {
   pageSize: number;
@@ -8,6 +10,12 @@ type State = {
   nameQ: string;
   tvQ: string;
   rowCount?: number;
+
+  isModalOpen: boolean;
+  selectedId: number | null;
+  detail: Character | null;
+  detailLoading: boolean;
+  detailError: string | null;
 };
 
 const initialState: State = {
@@ -17,6 +25,12 @@ const initialState: State = {
   nameQ: "",
   tvQ: "",
   rowCount: undefined,
+
+  isModalOpen: false,
+  selectedId: null,
+  detail: null,
+  detailLoading: false,
+  detailError: null,
 };
 
 const charactersTableSlice = createSlice({
@@ -47,6 +61,34 @@ const charactersTableSlice = createSlice({
     clearTvInput: (s) => {
       s.tvInput = "";
     },
+
+    openModalById: (s, a: PayloadAction<number>) => {
+      s.isModalOpen = true;
+      s.selectedId = a.payload;
+      s.detail = null;
+      s.detailError = null;
+    },
+    closeModal: (s) => {
+      s.isModalOpen = false;
+      s.selectedId = null;
+      s.detail = null;
+      s.detailLoading = false;
+      s.detailError = null;
+    },
+  },
+  extraReducers: (b) => {
+    b.addCase(getOneCharacter.pending, (s) => {
+      s.detailLoading = true;
+      s.detailError = null;
+    });
+    b.addCase(getOneCharacter.fulfilled, (s, a) => {
+      s.detailLoading = false;
+      s.detail = a.payload;
+    });
+    b.addCase(getOneCharacter.rejected, (s, a) => {
+      s.detailLoading = false;
+      s.detailError = a.error.message ?? "Error";
+    });
   },
 });
 
@@ -59,7 +101,17 @@ export const {
   setRowCount,
   clearNameInput,
   clearTvInput,
+  openModalById,
+  closeModal,
 } = charactersTableSlice.actions;
+
+export const selectIsModalOpen = (s: RootState) =>
+  s.charactersTable.isModalOpen;
+export const selectDetail = (s: RootState) => s.charactersTable.detail;
+export const selectDetailLoading = (s: RootState) =>
+  s.charactersTable.detailLoading;
+export const selectDetailError = (s: RootState) =>
+  s.charactersTable.detailError;
 
 export const selectPageSize = (s: RootState) => s.charactersTable.pageSize;
 export const selectNameInput = (s: RootState) => s.charactersTable.nameInput;

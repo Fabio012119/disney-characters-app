@@ -11,10 +11,11 @@ import { columnItems } from "../../helpers/table.helpers";
 import { defaultColDef } from "../../constants/defaultColDef";
 import { gridThemeStyle } from "../../constants/themeStyle";
 import { useDebouncedQuery } from "../../hooks/useDebouncedQuerry";
-import { createApiFetcher } from "../../api/createApiFetcher";
+import { getAllCharacters } from "../../api/getAllCharacters";
 import { createDisneyDatasource } from "../../datasource/createDisneyDatasource";
 import { usePreserveTopRowOnPageSize } from "../../hooks/usePreserveTopRowOnPageSize";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import CharacterModal from "../CharacterModal";
 import LabeledInputWithClear from "./LabeledInputWithClear";
 import {
   selectNameInput,
@@ -31,18 +32,20 @@ import {
   setRowCount,
   clearNameInput,
   clearTvInput,
+  openModalById,
 } from "../../redux/reducers/charactersTableSlice";
+import { getOneCharacter } from "../../api/getOneCharacter";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 const CharactersTable = () => {
-  const dispatch = useDispatch();
-  const pageSize = useSelector(selectPageSize);
-  const nameInput = useSelector(selectNameInput);
-  const tvInput = useSelector(selectTvInput);
-  const nameQ = useSelector(selectNameQ);
-  const tvQ = useSelector(selectTvQ);
-  const rowCount = useSelector(selectRowCount);
+  const dispatch = useAppDispatch();
+  const pageSize = useAppSelector(selectPageSize);
+  const nameInput = useAppSelector(selectNameInput);
+  const tvInput = useAppSelector(selectTvInput);
+  const nameQ = useAppSelector(selectNameQ);
+  const tvQ = useAppSelector(selectTvQ);
+  const rowCount = useAppSelector(selectRowCount);
 
   const apiRef = useRef<GridApi | null>(null);
   const pageSizeRef = useRef<number>(50);
@@ -63,7 +66,7 @@ const CharactersTable = () => {
     300
   );
 
-  const fetchApiPage = useMemo(() => createApiFetcher(nameQ), [nameQ]);
+  const fetchApiPage = useMemo(() => getAllCharacters(nameQ), [nameQ]);
 
   const datasource = useMemo(
     () =>
@@ -133,6 +136,13 @@ const CharactersTable = () => {
           suppressCellFocus
           animateRows
           overlayNoRowsTemplate="No data"
+          onRowClicked={(e) => {
+            const id = Number(e.data?.id);
+            if (Number.isFinite(id)) {
+              dispatch(openModalById(id));
+              dispatch(getOneCharacter(id));
+            }
+          }}
           overlayLoadingTemplate='<span class="ag-overlay-loading-center">Loading…</span>'
           onSortChanged={() => apiRef.current?.purgeInfiniteCache()}
         />
@@ -143,6 +153,7 @@ const CharactersTable = () => {
           {rowCount.toLocaleString()} total characters
         </div>
       )}
+      <CharacterModal />
     </div>
   );
 };
