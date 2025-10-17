@@ -1,12 +1,7 @@
-import { type DashboardView } from "../../redux/reducers/viewsSlice";
+import { nav } from "../../constants/menu-nav";
 import MenuButton from "./MenuButton";
 
 type Props = { open: boolean; onClose: () => void };
-
-const nav: { label: string; view: DashboardView }[] = [
-  { label: "Data Table", view: "DATA_TABLE" },
-  { label: "Pie Charts", view: "PIE_CHARTS" },
-];
 
 const Sidebar = ({ open, onClose }: Props) => {
   return (
