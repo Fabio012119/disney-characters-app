@@ -1,6 +1,6 @@
 import { useMemo, useRef, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
-import { PAGE_SIZES, API_PAGE_SIZE } from "../../constants";
+import { API_PAGE_SIZE } from "../../constants";
 import {
   ModuleRegistry,
   AllCommunityModule,
@@ -28,13 +28,13 @@ import {
   setTvInput,
   setNameQ,
   setTvQ,
-  setPageSize,
   setRowCount,
   clearNameInput,
   clearTvInput,
   openModalById,
 } from "../../redux/reducers/charactersTableSlice";
 import { getOneCharacter } from "../../api/getOneCharacter";
+import PageSizeSelector from "./PageSizeSelector";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -98,20 +98,7 @@ const CharactersTable = () => {
           onClear={() => dispatch(clearTvInput())}
         />
 
-        <div className="ml-auto flex items-center gap-2">
-          <label className="text-sm">Rows per page</label>
-          <select
-            className="rounded-md px-2 py-2 text-sm shadow-lg focus:outline-none focus:ring"
-            value={pageSize}
-            onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
-          >
-            {PAGE_SIZES.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </div>
+        <PageSizeSelector pageSize={pageSize} />
       </div>
 
       <div
