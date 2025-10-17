@@ -101,7 +101,7 @@ const CharactersTable = () => {
         <div className="ml-auto flex items-center gap-2">
           <label className="text-sm">Rows per page</label>
           <select
-            className="rounded-md border px-2 py-2 text-sm shadow-sm focus:outline-none focus:ring"
+            className="rounded-md px-2 py-2 text-sm shadow-sm focus:outline-none focus:ring"
             value={pageSize}
             onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
           >
@@ -115,7 +115,7 @@ const CharactersTable = () => {
       </div>
 
       <div
-        className="ag-theme-quartz w-full rounded-xl border shadow-sm overflow-hidden"
+        className="ag-theme-quartz w-full rounded-xl shadow-sm overflow-hidden"
         style={gridThemeStyle}
       >
         <AgGridReact

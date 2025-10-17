@@ -24,8 +24,10 @@ const MenuButton = ({
         dispatch(setView(n.view));
         onClose();
       }}
-      className={`w-full text-left rounded-lg px-3 py-2 text-sm hover:bg-slate-100 cursor-pointer ${
-        isActive(n) ? "bg-slate-100 font-medium" : ""
+      className={`w-full text-left rounded-lg px-3 py-2 text-sm cursor-pointer ${
+        isActive(n)
+          ? "bg-blue-500/80 font-bold"
+          : "hover:bg-blue-500/20 font-medium"
       }`}
     >
       {n.label}

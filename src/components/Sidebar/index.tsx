@@ -14,7 +14,7 @@ const Sidebar = ({ open, onClose }: Props) => {
       />
 
       <aside
-        className={`fixed z-50 inset-y-0 left-0 w-64 shrink-0 border-r bg-white p-4 md:sticky md:top-0 md:z-0 md:block
+        className={`fixed z-50 shadow-2xl inset-y-0 left-0 w-64 shrink-0 border-r border-blue-500 bg-white p-4 md:sticky md:top-0 md:z-0 md:block
         ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } transition-transform`}
@@ -29,7 +29,7 @@ const Sidebar = ({ open, onClose }: Props) => {
           })}
         </nav>
 
-        <div className="mt-6 border-t pt-4 text-xs text-slate-500">
+        <div className="mt-6 border-t-4 border-blue-500 pt-4 text-xs text-slate-500">
           © {new Date().getFullYear()} Disney Dashboard
         </div>
       </aside>
