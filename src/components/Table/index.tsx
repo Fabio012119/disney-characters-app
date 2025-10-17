@@ -15,6 +15,7 @@ import { createApiFetcher } from "../../api/createApiFetcher";
 import { createDisneyDatasource } from "../../datasource/createDisneyDatasource";
 import { usePreserveTopRowOnPageSize } from "../../hooks/usePreserveTopRowOnPageSize";
 import { useDispatch, useSelector } from "react-redux";
+import LabeledInputWithClear from "./LabeledInputWithClear";
 import {
   selectNameInput,
   selectTvInput,
@@ -78,41 +79,21 @@ const CharactersTable = () => {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3">
-        <div className="flex items-center gap-2">
-          <label className="text-sm">Search by name</label>
-          <input
-            className="rounded-md border px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring"
-            value={nameInput}
-            onChange={(e) => dispatch(setNameInput(e.target.value))}
-            placeholder="Minnie"
-          />
-          {nameInput && (
-            <button
-              className="rounded-md border px-2 py-1 text-sm shadow-sm hover:bg-gray-50"
-              onClick={() => dispatch(clearNameInput())}
-            >
-              Clear
-            </button>
-          )}
-        </div>
+        <LabeledInputWithClear
+          label="Search by name"
+          value={nameInput}
+          placeholder="Minnie"
+          onChange={(v) => dispatch(setNameInput(v))}
+          onClear={() => dispatch(clearNameInput())}
+        />
 
-        <div className="flex items-center gap-2">
-          <label className="text-sm">Filter by TV show</label>
-          <input
-            className="rounded-md border px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring"
-            value={tvInput}
-            onChange={(e) => dispatch(setTvInput(e.target.value))}
-            placeholder="DuckTales"
-          />
-          {tvInput && (
-            <button
-              className="rounded-md border px-2 py-1 text-sm shadow-sm hover:bg-gray-50"
-              onClick={() => dispatch(clearTvInput())}
-            >
-              Clear
-            </button>
-          )}
-        </div>
+        <LabeledInputWithClear
+          label="Filter by TV show"
+          value={tvInput}
+          placeholder="DuckTales"
+          onChange={(v) => dispatch(setTvInput(v))}
+          onClear={() => dispatch(clearTvInput())}
+        />
 
         <div className="ml-auto flex items-center gap-2">
           <label className="text-sm">Rows per page</label>
