@@ -1,11 +1,11 @@
-type Props = {
-  open: boolean;
-  onClose: () => void;
-};
+import { type DashboardView } from "../../redux/reducers/viewsSlice";
+import MenuButton from "./MenuButton";
 
-const nav = [
-  { label: "Data Table", href: "#" },
-  { label: "Pie Charts", href: "#" },
+type Props = { open: boolean; onClose: () => void };
+
+const nav: { label: string; view: DashboardView }[] = [
+  { label: "Data Table", view: "DATA_TABLE" },
+  { label: "Pie Charts", view: "PIE_CHARTS" },
 ];
 
 const Sidebar = ({ open, onClose }: Props) => {
@@ -29,15 +29,9 @@ const Sidebar = ({ open, onClose }: Props) => {
         </div>
 
         <nav className="space-y-1">
-          {nav.map((n) => (
-            <a
-              key={n.label}
-              href={n.href}
-              className="block rounded-lg px-3 py-2 text-sm hover:bg-slate-100"
-            >
-              {n.label}
-            </a>
-          ))}
+          {nav.map((n) => {
+            return <MenuButton onClose={() => onClose()} n={n} />;
+          })}
         </nav>
 
         <div className="mt-6 border-t pt-4 text-xs text-slate-500">

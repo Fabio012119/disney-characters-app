@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import DashboardHeader from "../components/Headers/DashboardHeader";
 import CharactersTable from "../components/Table";
 import Sidebar from "../components/Sidebar";
+import { selectView } from "../redux/reducers/viewsSlice";
+
+const PieCharts = () => <div>Pie charts go here</div>;
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
+  const currentView = useSelector(selectView);
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -35,8 +40,12 @@ const Dashboard = () => {
           </div>
 
           <section className="lg:col-span-2 rounded-xl border bg-white p-6">
-            <h2 className="mb-4 text-lg font-semibold">Characters</h2>
-            <CharactersTable />
+            <h2 className="mb-4 text-lg font-semibold">
+              {currentView === "DATA_TABLE" && "Characters"}
+              {currentView === "PIE_CHARTS" && "Pie Charts"}
+            </h2>
+            {currentView === "DATA_TABLE" && <CharactersTable />}
+            {currentView === "PIE_CHARTS" && <PieCharts />}
           </section>
         </main>
       </div>
