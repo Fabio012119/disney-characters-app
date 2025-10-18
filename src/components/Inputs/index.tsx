@@ -1,14 +1,6 @@
-import type { ChangeEventHandler } from "react";
+import type { FormInputsProps } from "@/types/component-props";
 
-const Input = ({
-  type,
-  value,
-  onChange,
-} : {
-    type : "password" | "username",
-    value: string,
-    onChange: ChangeEventHandler<HTMLInputElement>
-}) => {
+const Input = ({ type, value, onChange }: FormInputsProps) => {
   return (
     <label className="block text-black">
       <span className="text-sm capitalize">{type}</span>

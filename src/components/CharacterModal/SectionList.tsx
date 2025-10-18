@@ -1,10 +1,6 @@
-type Props = {
-  title: string;
-  items?: string[];
-  className?: string;
-};
+import type { SectionListProps } from "@/types/component-props";
 
-const SectionList = ({ title, items, className = "" }: Props) => {
+const SectionList = ({ title, items, className = "" }: SectionListProps) => {
   return (
     <div className={className}>
       <div className="mb-2 text-sm font-medium text-[#0A2A6C]">{title}</div>

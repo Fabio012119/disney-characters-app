@@ -1,14 +1,6 @@
 import { useMemo } from "react";
 import { range1 } from "@/utils/pieChart";
-
-type Props = {
-  value: number;
-  totalPages: number;
-  count: number;
-  nameQ?: string;
-  disabled?: boolean;
-  onChange: (page: number) => void;
-};
+import type { PageNumberSelectorProps } from "@/types/component-props";
 
 const PageNumberSelector = ({
   value,
@@ -17,7 +9,7 @@ const PageNumberSelector = ({
   nameQ,
   disabled = false,
   onChange,
-}: Props) => {
+}: PageNumberSelectorProps) => {
   const pageOptions = useMemo(() => range1(totalPages), [totalPages]);
 
   return (

@@ -1,11 +1,4 @@
-type Props = {
-  label: string;
-  value: string;
-  placeholder?: string;
-  onChange: (v: string) => void;
-  onClear: () => void;
-  className?: string;
-};
+import type { LabeledInputWithClearProps } from "@/types/component-props";
 
 const LabeledInputWithClear = ({
   label,
@@ -14,7 +7,7 @@ const LabeledInputWithClear = ({
   onChange,
   onClear,
   className = "",
-}: Props) => {
+}: LabeledInputWithClearProps) => {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <label className="text-sm">{label}</label>

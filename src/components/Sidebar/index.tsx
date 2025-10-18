@@ -1,9 +1,8 @@
 import { nav } from "@/constants/menu-nav";
 import MenuButton from "./MenuButton";
+import type { SideBarProps } from "@/types/component-props";
 
-type Props = { open: boolean; onClose: () => void };
-
-const Sidebar = ({ open, onClose }: Props) => {
+const Sidebar = ({ open, onClose }: SideBarProps) => {
   return (
     <>
       <div

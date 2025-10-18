@@ -4,14 +4,9 @@ import {
   setView,
   type DashboardView,
 } from "@/redux/reducers/viewsSlice";
+import type { MenuButtonProps } from "@/types/component-props";
 
-const MenuButton = ({
-  onClose,
-  n,
-}: {
-  onClose: () => void;
-  n: { label: string; view: DashboardView };
-}) => {
+const MenuButton = ({ onClose, n }: MenuButtonProps) => {
   const dispatch = useAppDispatch();
   const current = useAppSelector(selectView);
   const isActive = (n: { view: DashboardView }) => {

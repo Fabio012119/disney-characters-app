@@ -6,18 +6,7 @@ import type { ApiResponse } from "@/types/api";
 import type { Character } from "@/types/general";
 import type { Row } from "@/types/table";
 import type { IDatasource, IGetRowsParams } from "ag-grid-community";
-
-type FetchApiPage = (
-  apiPage: number,
-  signal: AbortSignal
-) => Promise<ApiResponse>;
-
-type Options = {
-  fetchApiPage: FetchApiPage;
-  tvQ: string;
-  pageSizeRef: React.MutableRefObject<number>;
-  setRowCount: (n: number) => void;
-};
+import type { Options } from "@/types/functions-types";
 
 export function createDisneyDatasource({
   fetchApiPage,
