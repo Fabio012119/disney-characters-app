@@ -1,5 +1,5 @@
 import type { ColDef } from "ag-grid-community";
-import type { Row } from "../types/table";
+import type { Row } from "@/types/table";
 
 export const columnItems: ColDef<Row>[] = [
   { field: "name", headerName: "Character", flex: 1, sortable: true },

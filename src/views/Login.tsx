@@ -1,5 +1,5 @@
-import Form from "../components/Form";
-import disneyImage from "../assets/disney-plus-logo.webp";
+import Form from "@/components/Form";
+import disneyImage from "@/assets/disney-plus-logo.webp";
 
 const Login = () => {
   return (

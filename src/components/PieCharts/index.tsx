@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { selectNameQ } from "../../redux/reducers/charactersTableSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectNameQ } from "@/redux/reducers/charactersTableSlice";
 import {
   fetchPiePage,
   selectPieLoading,
@@ -11,10 +11,10 @@ import {
   selectPiePage,
   selectPieTotalPages,
   setPiePage,
-} from "../../redux/reducers/pieChartSlice";
-import { toPieSeriesData, buildPieOptions } from "../../utils/pieChart";
+} from "@/redux/reducers/pieChartSlice";
+import { toPieSeriesData, buildPieOptions } from "@/utils/pieChart";
 import PageNumberSelector from "./PageNumberSelector";
-import { exportPieXlsx } from "../../utils/exportPieXlsx";
+import { exportPieXlsx } from "@/utils/exportPieXlsx";
 import "./index.css";
 
 const PieCharts = () => {

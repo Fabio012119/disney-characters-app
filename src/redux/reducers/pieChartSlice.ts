@@ -4,9 +4,9 @@ import {
   type PayloadAction,
 } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import type { ApiResponse } from "../../types/api";
-import type { Character } from "../../types/general";
-import { getAllCharacters } from "../../api/getAllCharacters";
+import type { ApiResponse } from "@/types/api";
+import type { Character } from "@/types/general";
+import { getAllCharacters } from "@/api/getAllCharacters";
 
 type State = {
   page: number;

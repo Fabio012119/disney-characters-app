@@ -1,5 +1,5 @@
-import type { ApiResponse } from "../types/api";
-import { API_PAGE_SIZE } from "../constants";
+import type { ApiResponse } from "@/types/api";
+import { API_PAGE_SIZE } from "@/constants";
 
 export const computeTotalRows = (pages: ApiResponse[]): number => {
   if (!pages.length) return 0;

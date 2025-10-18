@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { API_BASE } from "../constants";
-import type { Character } from "../types/general";
+import { API_BASE } from "@/constants";
+import type { Character } from "@/types/general";
 
 export const getOneCharacter = createAsyncThunk(
   "charactersTable/getOneCharacter",

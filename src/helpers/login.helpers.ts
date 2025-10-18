@@ -1,7 +1,7 @@
-import { loginSuccess } from "../redux/reducers/authSlice";
+import { loginSuccess } from "@/redux/reducers/authSlice";
 import type React from "react";
 import type { NavigateFunction } from "react-router-dom";
-import type { AppDispatch } from "../redux/store";
+import type { AppDispatch } from "@/redux/store";
 
 const USER = "disney";
 const PASS = "disney123";

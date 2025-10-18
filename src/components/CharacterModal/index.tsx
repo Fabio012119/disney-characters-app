@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import SectionList from "./SectionList";
 import {
   closeModal,
@@ -6,7 +6,7 @@ import {
   selectDetail,
   selectDetailLoading,
   selectDetailError,
-} from "../../redux/reducers/charactersTableSlice";
+} from "@/redux/reducers/charactersTableSlice";
 
 const CharacterModal = () => {
   const open = useAppSelector(selectIsModalOpen);

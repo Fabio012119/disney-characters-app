@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAppSelector } from "./redux/hooks";
-import Login from "./views/Login";
-import Dashboard from "./views/Dashboard";
+import { useAppSelector } from "@/redux/hooks";
+import Login from "@/views/Login";
+import Dashboard from "@/views/Dashboard";
 import type { JSX } from "react";
 
 function RootRedirect() {

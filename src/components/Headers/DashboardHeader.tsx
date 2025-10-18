@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { logout } from "../../redux/reducers/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logout } from "@/redux/reducers/authSlice";
 
 const DashboardHeader = () => {
   const dispatch = useAppDispatch();

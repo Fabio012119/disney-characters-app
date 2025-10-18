@@ -1,10 +1,10 @@
-import { API_PAGE_SIZE } from "../constants";
-import { computeTotalRows } from "../utils/computeTotalRows";
-import { buildRow } from "../utils/buildRow";
-import { normalize } from "../utils/general";
-import type { ApiResponse } from "../types/api";
-import type { Character } from "../types/general";
-import type { Row } from "../types/table";
+import { API_PAGE_SIZE } from "@/constants";
+import { computeTotalRows } from "@/utils/computeTotalRows";
+import { buildRow } from "@/utils/buildRow";
+import { normalize } from "@/utils/general";
+import type { ApiResponse } from "@/types/api";
+import type { Character } from "@/types/general";
+import type { Row } from "@/types/table";
 import type { IDatasource, IGetRowsParams } from "ag-grid-community";
 
 type FetchApiPage = (

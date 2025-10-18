@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { range1 } from "../../utils/pieChart";
+import { range1 } from "@/utils/pieChart";
 
 type Props = {
   value: number;

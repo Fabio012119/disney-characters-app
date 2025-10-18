@@ -1,5 +1,5 @@
-import { API_PAGE_SIZE, API_BASE } from "../constants";
-import type { ApiResponse } from "../types/api";
+import { API_PAGE_SIZE, API_BASE } from "@/constants";
+import type { ApiResponse } from "@/types/api";
 
 export function getAllCharacters(nameQ: string) {
   return async function fetchApiPage(

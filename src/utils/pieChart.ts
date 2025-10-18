@@ -1,5 +1,5 @@
 import type Highcharts from "highcharts";
-import type { Character } from "../types/general";
+import type { Character } from "@/types/general";
 
 export function toPieSeriesData(rows: Character[]) {
   return rows.map((c) => {

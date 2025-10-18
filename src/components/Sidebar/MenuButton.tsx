@@ -1,9 +1,9 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   selectView,
   setView,
   type DashboardView,
-} from "../../redux/reducers/viewsSlice";
+} from "@/redux/reducers/viewsSlice";
 
 const MenuButton = ({
   onClose,

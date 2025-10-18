@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Input from "../Inputs";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { onSubmit } from "../../helpers/login.helpers";
+import { useAppDispatch } from "@/redux/hooks";
+import { onSubmit } from "@/helpers/login.helpers";
 
 const Form = () => {
   const dispatch = useAppDispatch();

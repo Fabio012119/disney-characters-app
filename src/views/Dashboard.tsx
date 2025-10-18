@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import DashboardHeader from "../components/Headers/DashboardHeader";
-import CharactersTable from "../components/Table";
-import Sidebar from "../components/Sidebar";
-import PieCharts from "../components/PieCharts";
-import { selectView } from "../redux/reducers/viewsSlice";
+import DashboardHeader from "@/components/Headers/DashboardHeader";
+import CharactersTable from "@/components/Table";
+import Sidebar from "@/components/Sidebar";
+import PieCharts from "@/components/PieCharts";
+import { selectView } from "@/redux/reducers/viewsSlice";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);

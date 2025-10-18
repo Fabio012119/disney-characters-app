@@ -1,6 +1,6 @@
 import { toCsv } from "./general";
-import type { Character } from "../types/general";
-import type { Row } from "../types/table";
+import type { Character } from "@/types/general";
+import type { Row } from "@/types/table";
 
 export const buildRow = (c: Character): Row => ({
   id: c._id,

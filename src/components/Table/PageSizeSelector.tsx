@@ -1,6 +1,6 @@
-import { PAGE_SIZES } from "../../constants";
-import { setPageSize } from "../../redux/reducers/charactersTableSlice";
-import { useAppDispatch } from "../../redux/hooks";
+import { PAGE_SIZES } from "@/constants";
+import { setPageSize } from "@/redux/reducers/charactersTableSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 const PageSizeSelector = ({ pageSize }: { pageSize: number }) => {
   const dispatch = useAppDispatch();

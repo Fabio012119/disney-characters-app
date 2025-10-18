@@ -1,4 +1,4 @@
-import { nav } from "../../constants/menu-nav";
+import { nav } from "@/constants/menu-nav";
 import MenuButton from "./MenuButton";
 
 type Props = { open: boolean; onClose: () => void };

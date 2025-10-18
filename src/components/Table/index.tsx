@@ -1,20 +1,20 @@
 import { useMemo, useRef, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
-import { API_PAGE_SIZE } from "../../constants";
+import { API_PAGE_SIZE } from "@/constants";
 import {
   ModuleRegistry,
   AllCommunityModule,
   themeQuartz,
   type GridApi,
 } from "ag-grid-community";
-import { columnItems } from "../../helpers/table.helpers";
-import { defaultColDef } from "../../constants/defaultColDef";
-import { gridThemeStyle } from "../../constants/themeStyle";
-import { useDebouncedQuery } from "../../hooks/useDebouncedQuerry";
-import { getAllCharacters } from "../../api/getAllCharacters";
-import { createDisneyDatasource } from "../../datasource/createDisneyDatasource";
-import { usePreserveTopRowOnPageSize } from "../../hooks/usePreserveTopRowOnPageSize";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { columnItems } from "@/helpers/table.helpers";
+import { defaultColDef } from "@/constants/defaultColDef";
+import { gridThemeStyle } from "@/constants/themeStyle";
+import { useDebouncedQuery } from "@/hooks/useDebouncedQuerry";
+import { getAllCharacters } from "@/api/getAllCharacters";
+import { createDisneyDatasource } from "@/datasource/createDisneyDatasource";
+import { usePreserveTopRowOnPageSize } from "@/hooks/usePreserveTopRowOnPageSize";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import CharacterModal from "../CharacterModal";
 import LabeledInputWithClear from "./LabeledInputWithClear";
 import {
@@ -32,8 +32,8 @@ import {
   clearNameInput,
   clearTvInput,
   openModalById,
-} from "../../redux/reducers/charactersTableSlice";
-import { getOneCharacter } from "../../api/getOneCharacter";
+} from "@/redux/reducers/charactersTableSlice";
+import { getOneCharacter } from "@/api/getOneCharacter";
 import PageSizeSelector from "./PageSizeSelector";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
