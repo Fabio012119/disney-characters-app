@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { getOneCharacter } from "@/api/getOneCharacter";
-import type { RootState } from "@/store";
+import type { RootState } from "../store";
 import type { Character } from "@/types/general";
 
 type State = {
