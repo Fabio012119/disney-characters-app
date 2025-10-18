@@ -12,7 +12,8 @@ const DashboardHeader = () => {
         <span className="text-sm text-slate-600">Hello, {username}</span>
         <button
           onClick={() => dispatch(logout())}
-          className="px-3 py-2 border rounded-lg border-black font-semibold hover:text-white hover:bg-black cursor-pointer"
+          className="px-3 py-2 border rounded-lg border-black 
+          font-semibold hover:text-white hover:bg-black cursor-pointer"
         >
           Logout
         </button>

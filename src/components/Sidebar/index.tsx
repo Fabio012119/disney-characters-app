@@ -13,7 +13,8 @@ const Sidebar = ({ open, onClose }: SideBarProps) => {
       />
 
       <aside
-        className={`fixed z-50 shadow-2xl inset-y-0 left-0 w-64 shrink-0 border-r border-blue-500 bg-white p-4 md:sticky md:top-0 md:z-0 md:block
+        className={`fixed z-50 shadow-2xl inset-y-0 left-0 w-64 shrink-0 border-r
+           border-blue-500 bg-white p-4 md:sticky md:top-0 md:z-0 md:block
         ${
           open ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } transition-transform`}

@@ -28,13 +28,21 @@ const CharacterModal = () => {
         role="dialog"
         aria-modal="true"
       >
-        <div className="w-full max-w-3xl md:max-w-4xl rounded-2xl border border-blue-100 bg-white p-6 md:p-8 shadow-[0_10px_40px_rgba(2,6,23,0.4)] ring-1 ring-blue-50">
+        <div
+          className="w-full max-w-3xl md:max-w-4xl rounded-2xl border
+         border-blue-100 bg-white p-6 md:p-8 
+          shadow-[0_10px_40px_rgba(2,6,23,0.4)] ring-1 ring-blue-50"
+        >
           <div className="flex items-start justify-between">
-            <h3 className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-[#0A2A6C] via-[#153E90] to-[#3B82F6] bg-clip-text text-transparent">
+            <h3
+              className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-[#0A2A6C]
+             via-[#153E90] to-[#3B82F6] bg-clip-text text-transparent"
+            >
               {detail?.name || (loading ? "Loading…" : "Character")}
             </h3>
             <button
-              className="rounded-md border border-blue-200 px-3 py-1.5 text-sm cursor-pointer text-blue-700 hover:bg-blue-50"
+              className="rounded-md border border-blue-200 px-3 py-1.5 text-sm
+               cursor-pointer text-blue-700 hover:bg-blue-50"
               onClick={() => dispatch(closeModal())}
             >
               Close
