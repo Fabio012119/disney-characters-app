@@ -16,7 +16,6 @@ export function getAllCharacters(nameQ: string) {
     const res = await fetch(`${API_BASE}/character?${p.toString()}`, {
       signal,
     });
-    //console.log(await res.json())
     if (!res.ok) throw new Error(String(res.status));
     return (await res.json()) as ApiResponse;
   };
