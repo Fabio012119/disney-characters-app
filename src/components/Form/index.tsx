@@ -16,7 +16,7 @@ const Form = () => {
       onSubmit={(e) =>
         onSubmit(e, password, username, dispatch, navigate, setErr)
       }
-      className="w-full max-w-sm bg-white p-6 rounded-2xl shadow space-y-4"
+      className="w-full max-w-sm shadow-2xl bg-white p-6 rounded-2xl space-y-4"
     >
       <h1 className="text-xl text-black font-bold text-center">Sign in</h1>
       <Input
