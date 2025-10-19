@@ -1,5 +1,5 @@
 import Form from "@/components/Form";
-import disneyImage from "@/assets/disney-plus-logo.webp";
+import DisneyImage from "@/components/DisneyImage";
 
 const Login = () => {
   return (
@@ -11,12 +11,9 @@ const Login = () => {
                       p-6 sm:p-8 lg:p-10"
       >
         <div className="w-full max-w-md flex flex-col items-center">
-          <img
-            src={disneyImage}
-            alt="Disney+"
+          <DisneyImage
             className="block xl:hidden w-40 sm:w-48 md:w-56 h-auto object-contain mb-6"
-            loading="eager"
-            decoding="async"
+            device="mobile"
           />
           <Form />
         </div>
@@ -28,12 +25,9 @@ const Login = () => {
                       bg-gradient-to-r from-[#0A2A6C] via-[#0F3EBD] to-[#1A73FF]
                       p-6 lg:p-10"
       >
-        <img
-          src={disneyImage}
-          alt="Disney+"
+        <DisneyImage
           className="invert w-full max-w-md h-auto object-contain"
-          loading="eager"
-          decoding="async"
+          device="desktop"
         />
       </div>
     </main>

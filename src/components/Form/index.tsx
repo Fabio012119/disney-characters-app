@@ -13,6 +13,7 @@ const Form = () => {
 
   return (
     <form
+      data-testid="login-form"
       onSubmit={(e) =>
         onSubmit(e, password, username, dispatch, navigate, setErr)
       }
@@ -29,8 +30,13 @@ const Form = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      {err && <p className="text-sm text-red-600">{err}</p>}
+      {err && (
+        <p data-testid="login-error" className="text-sm text-red-600">
+          {err}
+        </p>
+      )}
       <button
+        data-testid="log-in-btn"
         type="submit"
         className="w-full rounded-lg bg-black text-white py-2"
       >

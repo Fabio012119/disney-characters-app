@@ -11,6 +11,7 @@ const PageSizeSelector = ({ pageSize }: { pageSize: number }) => {
       <select
         className="rounded-md px-2 py-2 text-sm shadow-lg focus:outline-none focus:ring"
         value={pageSize}
+        data-testid="table-rows-per-page"
         onChange={(e) => dispatch(setPageSize(Number(e.target.value)))}
       >
         {PAGE_SIZES.map((s) => (

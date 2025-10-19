@@ -15,13 +15,14 @@ const MenuButton = ({ onClose, n }: MenuButtonProps) => {
   return (
     <button
       key={n.label}
+      data-testid={`menu-opt-${n.view}`}
       onClick={() => {
         dispatch(setView(n.view));
         onClose();
       }}
-      className={`w-full text-left rounded-lg px-3 py-2 text-sm cursor-pointer ${
+      className={`w-full text-left  rounded-lg px-3 py-2 text-sm cursor-pointer ${
         isActive(n)
-          ? "bg-blue-500/80 font-bold"
+          ? "bg-blue-500/80 font-bold text-white"
           : "hover:bg-blue-500/20 font-medium"
       }`}
     >

@@ -80,7 +80,7 @@ const CharactersTable = () => {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 p-3">
       <div className="flex flex-wrap items-center gap-3">
         <LabeledInputWithClear
           label="Search by name"
@@ -104,6 +104,7 @@ const CharactersTable = () => {
       <div
         className="ag-theme-quartz w-full rounded-xl shadow-sm overflow-hidden"
         style={gridThemeStyle}
+        data-testid="characters-table"
       >
         <AgGridReact
           theme={themeQuartz}
@@ -120,6 +121,7 @@ const CharactersTable = () => {
           datasource={datasource}
           rowHeight={40}
           headerHeight={40}
+          rowClass="test-row"
           suppressCellFocus
           animateRows
           overlayNoRowsTemplate="No data"

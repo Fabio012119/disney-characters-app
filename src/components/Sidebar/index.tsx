@@ -13,6 +13,7 @@ const Sidebar = ({ open, onClose }: SideBarProps) => {
       />
 
       <aside
+      data-testid="side-bar"
         className={`fixed z-50 shadow-2xl inset-y-0 left-0 w-64 shrink-0 border-r
            border-blue-500 bg-white p-4 md:sticky md:top-0 md:z-0 md:block
         ${
@@ -20,7 +21,7 @@ const Sidebar = ({ open, onClose }: SideBarProps) => {
         } transition-transform`}
       >
         <div className="mb-6">
-          <div className="text-lg font-bold">Disney Admin</div>
+          <div className="text-lg font-bold"data-testid="disney-admin-text">Disney Admin</div>
         </div>
 
         <nav className="space-y-1">

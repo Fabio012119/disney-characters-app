@@ -35,12 +35,14 @@ const CharacterModal = () => {
         >
           <div className="flex items-start justify-between">
             <h3
+              data-testid="character-name"
               className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-[#0A2A6C]
              via-[#153E90] to-[#3B82F6] bg-clip-text text-transparent"
             >
               {detail?.name || (loading ? "Loading…" : "Character")}
             </h3>
             <button
+              data-testid="close-modal-btn"
               className="rounded-md border border-blue-200 px-3 py-1.5 text-sm
                cursor-pointer text-blue-700 hover:bg-blue-50"
               onClick={() => dispatch(closeModal())}
@@ -59,6 +61,7 @@ const CharacterModal = () => {
               {detail.imageUrl && (
                 <div className="mt-6 overflow-hidden rounded-xl border border-blue-50 bg-slate-50">
                   <img
+                    data-testid="character-image"
                     src={detail.imageUrl}
                     alt={detail.name}
                     className="h-80 w-full object-contain"

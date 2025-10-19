@@ -17,12 +17,13 @@ const PageNumberSelector = ({
       <label className="text-sm">Page</label>
       <select
         className="rounded-md border px-2 py-1.5 text-sm"
+        data-testid="page-selector"
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         disabled={disabled || totalPages <= 1}
       >
         {pageOptions.map((p) => (
-          <option key={p} value={p}>
+          <option key={p} value={p} data-testid={`page-opt-${p}`}>
             {p}
           </option>
         ))}

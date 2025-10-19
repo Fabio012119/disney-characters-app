@@ -23,8 +23,8 @@ const Dashboard = () => {
           </button>
         </div>
         <div className="hidden md:block">
-          <div className="mx-auto px-6">
-            <DashboardHeader />
+          <div className="mx-auto">
+            <DashboardHeader device="desktop" />
           </div>
         </div>
       </div>
@@ -34,11 +34,11 @@ const Dashboard = () => {
 
         <main className="p-4 md:p-6 bg-gray-200">
           <div className="md:hidden mb-4">
-            <DashboardHeader />
+            <DashboardHeader device="mobile" />
           </div>
 
-          <section className="lg:col-span-2 rounded-xl shadow-2xl bg-white p-6">
-            <h2 className="mb-4 text-lg font-semibold">
+          <section className="w-[80%] max-md:w-full min-h-[50%] mx-auto flex flex-col justify-center rounded-xl shadow-2xl bg-white">
+            <h2 className="m-5 text-lg font-semibold">
               {currentView === "DATA_TABLE" && "Characters"}
               {currentView === "PIE_CHARTS" && "Pie Charts"}
             </h2>

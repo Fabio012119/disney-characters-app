@@ -24,14 +24,14 @@ const initialState: State = {
   error: null,
 };
 
-export const fetchPiePage = createAsyncThunk<
-  ApiResponse,
-  { page: number; nameQ: string }
->("pieCharts/fetchPiePage", async ({ page, nameQ }, { signal }) => {
-  const fetchApiPage = getAllCharacters(nameQ);
-  const res = await fetchApiPage(page, signal);
-  return res;
-});
+export const fetchPiePage = createAsyncThunk<ApiResponse, { page: number }>(
+  "pieCharts/fetchPiePage",
+  async ({ page }, { signal }) => {
+    const fetchApiPage = getAllCharacters();
+    const res = await fetchApiPage(page, signal);
+    return res;
+  }
+);
 
 const slice = createSlice({
   name: "pieCharts",
