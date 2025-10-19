@@ -13,7 +13,7 @@ https://github.com/Fabio012119/disney-characters-app.git
 First, install node modules development server:
 
 ```bash
-npm run install
+npm install
 # or
 yarn
 # or
