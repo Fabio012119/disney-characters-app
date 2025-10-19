@@ -5,7 +5,7 @@ import { normalize } from "@/utils/general";
 import type { ApiResponse } from "@/types/api";
 import type { Character } from "@/types/general";
 import type { Row } from "@/types/table";
-import type { IDatasource, IGetRowsParams } from "ag-grid-community";
+import type { IGetRowsParams } from "ag-grid-community";
 import type { Options } from "@/types/functions-types";
 
 export function createDisneyDatasource({
@@ -13,7 +13,7 @@ export function createDisneyDatasource({
   tvQ,
   pageSizeRef,
   setRowCount,
-}: Options): IDatasource {
+}: Options) {
   return {
     getRows: async (params: IGetRowsParams) => {
       try {
