@@ -41,7 +41,7 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 - For the characters table AG Grid was used [`ag-grid-community`](https://www.npmjs.com/package/ag-grid-community)
 - For the pie chart the highcharts library [`highcharts`](https://www.npmjs.com/package/highcharts)
 - To export the pie charts data i used [`xlsx`](https://www.npmjs.com/package/xlsx)
-- Tailwind CSS is used for styling
+- Tailwind CSS is used for styling [`tailwindcss`](https://www.npmjs.com/package/tailwindcss)
 - Basic E2E flow tests has been added. Now we only test for desktop devices
   For the e2e test was used [`playwright`](https://www.npmjs.com/package/playwright)
 
