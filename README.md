@@ -2,6 +2,9 @@
 
 This project list data from the `https://disneyapi.dev/` in a data table and in a pie chart.
 
+You can see a production version of the in `https://fabio012119.github.io/login`.
+Please log in with the credentials I have given you.
+
 ## Getting Started
 
 Clone the repo:
@@ -44,6 +47,7 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 - Tailwind CSS is used for styling [`tailwindcss`](https://www.npmjs.com/package/tailwindcss)
 - Basic E2E flow tests has been added. Now we only test for desktop devices
   For the e2e test was used [`playwright`](https://www.npmjs.com/package/playwright)
+  -To host the project in GitHub pages I used [`gh-pages`](https://www.npmjs.com/package/gh-pages?activeTab=dependencies)
 
 ## Run tests
 
