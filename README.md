@@ -2,7 +2,7 @@
 
 This project list data from the `https://disneyapi.dev/` in a data table and in a pie chart.
 
-You can see a production version of the in `https://fabio012119.github.io/login`.
+You can see a production version of the in `https://fabio012119.github.io/disney-characters-app/`.
 Please log in with the credentials I have given you.
 
 ## Getting Started
