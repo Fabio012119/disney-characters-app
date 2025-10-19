@@ -8,12 +8,16 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "playwright install && playwright test"
+    "test": "playwright install && playwright test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "ag-grid-community": "^34.2.0",
     "ag-grid-react": "^34.2.0",
+    "gh-pages": "^6.3.0",
     "highcharts": "^12.4.0",
     "highcharts-react-official": "^3.2.3",
     "react": "^19.1.1",
