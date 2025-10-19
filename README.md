@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-This project list data from the ['https://disneyapi.dev/'] in a data table and in a pie chart.
+This project list data from the `https://disneyapi.dev/` in a data table and in a pie chart.
 
 ## Getting Started
 
